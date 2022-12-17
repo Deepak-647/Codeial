@@ -85,6 +85,7 @@ return}
 })
 
 }
+
 //deleting cookies for sign out
 module.exports.destroySession=function(req,res){
   res.clearCookie('user_id');
