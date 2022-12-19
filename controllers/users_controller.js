@@ -70,7 +70,16 @@ module.exports.createSession = function (req, res) {
 }
 
 //deleting cookies for sign out
-module.exports.destroySession=function(req,res){
-  res.clearCookie('user_id');
+// module.exports.destroySession=function(req,res){
+//   res.clearCookie('user_id');
+//   return res.redirect('/');
+// } 
+
+module.exports.destroySession = function(req, res,next){
+  req.logout(function(err) {
+      if (err) { return next(err); }
+     
+    });
+
   return res.redirect('/');
-} 
+}
